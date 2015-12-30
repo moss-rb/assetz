@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'A fun asset manager for Rails.'
   spec.description   = 'A fun asset manager for Rails.'
-  spec.homepage      = 'https://github.com/maclover7/assetz'
+  spec.homepage      = 'https://github.com/moss-rb/assetz'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
