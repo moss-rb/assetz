@@ -1,4 +1,4 @@
-require "assetz/version"
+require 'assetz/version'
 
 module Assetz
   # Your code goes here...
