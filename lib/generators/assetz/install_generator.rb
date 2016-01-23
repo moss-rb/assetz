@@ -12,10 +12,21 @@ module Assetz
         install_brunch
         setup_brunch
         add_to_gitignore
+        add_to_application_template
         create_static_directory
       end
 
       private
+
+      def add_to_application_template
+        inject_into_file 'app/views/layouts/application.html.erb', after: "<%= action_cable_meta_tag %>\n" do <<-'RUBY'
+
+    <link rel="stylesheet" href="/static/css/app.css">
+    <script src="/static/js/app.js"></script>"
+RUBY
+      end
+        ''
+      end
 
       def add_to_gitignore
         gitignore = destination_root + '/.gitignore'
@@ -26,7 +37,6 @@ module Assetz
           return
         end
 
-        return unless Pathname.new(gitignore).read.include?('/node_modules')
         inject_into_file '.gitignore', after: ".byebug_history\n" do
           '/node_modules'
         end
